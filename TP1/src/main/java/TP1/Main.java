@@ -1,4 +1,4 @@
-package martina.tp1.programacion2;
+package TP1;
 
 public class Main {
 
@@ -17,5 +17,19 @@ public static void main(String[] args) {
     Reporte rep = new Reporte(); // se crea un nuevo reporte y se guarda en rep
     rep.imprimirSecciones("Introducción", "Datos", "Final"); // le pasas valores para que muestre
     rep.imprimirSecciones(); // no le pasa nada y deberia funcionar igual
+    
+
+    // Polimorfismo (ej 3.2)
+    Documento doc1 = new Factura("A-001");
+    Documento doc2 = new Recibo();
+
+    doc1.procesar(); // Ejecuta Factura
+    doc2.procesar(); // Ejecuta Recibo
+
+    // interfaces y sobrecarga
+    Factura f = new Factura("B-005");
+    f.exportar();           // Interfaz Exportable
+    f.registrarAuditoria(); // Interfaz Auditable
+    f.procesar(true);       // Sobrecarga
 }
 }

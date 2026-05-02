@@ -1,4 +1,4 @@
-package martina.tp1.programacion2;
+package TP1;
 
 public class Reporte {
 

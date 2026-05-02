@@ -1,4 +1,4 @@
-package martina.tp1.programacion2;
+package TP1;
 
 /**
  * Clase SistemaGestor: Se encarga de la configuración básica del sistema (reglas y cosas que no cambian).
