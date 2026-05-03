@@ -1,13 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package TP2;
 
-/**
- *
- * @author martinamoneo2
- */
-public class Empleado {
-    
+public class Empleado implements Comparable<Empleado> {
+    private String nombre;
+    private int edad;
+
+    public Empleado(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    // Getters para poder leer los datos
+    public String getNombre() { return nombre; }
+    public int getEdad() { return edad; }
+
+    // 5.1 Orden natural: Por edad
+    @Override
+    public int compareTo(Empleado otro) {
+        return Integer.compare(this.edad, otro.edad);
+    }
+
+    @Override
+    public String toString() {
+        return nombre + " (" + edad + ")";
+    }
 }

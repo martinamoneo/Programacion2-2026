@@ -21,9 +21,9 @@ public class EjercicioColecciones {
         // El Integer es el ID y el String es el Nombre
         HashMap<Integer, String> usuarios = new HashMap<>();
         
-        usuarios.put(101, "Nare"); // Usamos put() para agregar
-        usuarios.put(102, "Martina");
-        usuarios.put(103, "Sofii");
+        usuarios.put(101, "Gabriel"); // Usamos put() para agregar
+        usuarios.put(102, "Sara");
+        usuarios.put(103, "Sofia");
         
         // Recuperar y actualizar
         String nombre = usuarios.get(102); // Debería traerte "Martina"
