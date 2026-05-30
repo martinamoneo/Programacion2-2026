@@ -3,13 +3,11 @@ package TP7;
 public class Empleado {
     private int id;
     private String nombre;
-    private int idDepto; // Cambiado a int para la Clave Foránea
-    private String rutaFoto; // Nueva variable para el punto 3
+    private int idDepto; // int para la clave foranea
+    private String rutaFoto; // variable para foto
 
-    // Constructor vacío obligado para el POJO
     public Empleado() {}
 
-    // Constructor lleno
     public Empleado(int id, String nombre, int idDepto, String rutaFoto) {
         this.id = id;
         this.nombre = nombre;
@@ -17,7 +15,7 @@ public class Empleado {
         this.rutaFoto = rutaFoto;
     }
 
-    // Getters y Setters
+    // getters y setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

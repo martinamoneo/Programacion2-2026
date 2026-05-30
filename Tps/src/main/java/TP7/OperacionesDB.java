@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class OperacionesDB {
     
-    // Método para agregar información (INSERT)
+    // agregar info
     public void insertarEmpleado(String nombre, String departamento) {
         String sql = "INSERT INTO empleados (nombre, departamento) VALUES (?, ?)";
 
@@ -21,7 +21,7 @@ public class OperacionesDB {
         }
     }
 
-    // Método para modificar información (UPDATE)
+    // modificar info
     public void actualizarDepartamento(int id, String nuevoDepartamento) {
         String sql = "UPDATE empleados SET departamento = ? WHERE id = ?";
 
@@ -41,7 +41,7 @@ public class OperacionesDB {
         }
     }
 
-    // Método para borrar información (DELETE)
+    // borrar info
     public void borrarEmpleado(int id) {
         String sql = "DELETE FROM empleados WHERE id = ?";
 
@@ -60,17 +60,17 @@ public class OperacionesDB {
         }
     }
 
-    // Método principal para poner a prueba todas las funciones
+    // probar funciones
     public static void main(String[] args) {
         OperacionesDB ops = new OperacionesDB();
         
-        // 1. Ejecutar un INSERT
+        // insert
         ops.insertarEmpleado("Ana García", "Recursos Humanos");
         
-        // 2. Ejecutar un UPDATE (Suponiendo que a Ana se le asignó el ID 1)
+        // update
         ops.actualizarDepartamento(1, "Finanzas");
         
-        // 3. Ejecutar un DELETE
+        // delete
         ops.borrarEmpleado(1);
     }
 }

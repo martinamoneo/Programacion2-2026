@@ -8,21 +8,20 @@ public class FormularioEmpleado extends javax.swing.JFrame {
     private DefaultTableModel modeloTabla;
 
     public FormularioEmpleado() {
-        // Inicializa los componentes visuales armados en código
+        // inicia los componenentes visuales
         initComponentsCustom();
         
-        // Configura la tabla para el Ejercicio 7
         modeloTabla = new DefaultTableModel(new Object[]{"ID", "Nombre", "ID Depto", "Ruta Foto"}, 0);
         tablaEmpleados.setModel(modeloTabla);
         
-        // Llena el Combo Box con los departamentos (Punto 2)
+        // deptos
         cmbDepartamento.removeAllItems();
         cmbDepartamento.addItem("Recursos Humanos");
         cmbDepartamento.addItem("Finanzas");
         cmbDepartamento.addItem("Sistemas");
         cmbDepartamento.addItem("Marketing");
         
-        // Carga los empleados de la base de datos real
+        // empleados a BD
         cargarDatosTabla();
     }
 
@@ -38,7 +37,7 @@ public class FormularioEmpleado extends javax.swing.JFrame {
     }
 
     private void initComponentsCustom() {
-        // Inicializamos los componentes con nombres limpios y fijos
+        // inicializar componentes
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaEmpleados = new javax.swing.JTable();
         lblIdEtiqueta = new javax.swing.JLabel("ID:");
@@ -46,7 +45,7 @@ public class FormularioEmpleado extends javax.swing.JFrame {
         lblDeptoEtiqueta = new javax.swing.JLabel("Departamento:");
         
         txtId = new javax.swing.JTextField();
-        txtId.setEditable(false); // El ID no se edita a mano
+        txtId.setEditable(false); // id no editable
         txtNombre = new javax.swing.JTextField();
         cmbDepartamento = new javax.swing.JComboBox<>();
         
@@ -61,7 +60,7 @@ public class FormularioEmpleado extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(tablaEmpleados);
 
-        // Evento del Mouse para seleccionar filas (Punto 3 y 4)
+        // seleccionar filas
         tablaEmpleados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 int fila = tablaEmpleados.getSelectedRow();
@@ -76,7 +75,7 @@ public class FormularioEmpleado extends javax.swing.JFrame {
                     lblFoto.setToolTipText(ruta);
                     
                     if (!ruta.isEmpty()) {
-                        // CORREGIDO: Ahora usa javax.swing.ImageIcon de forma correcta
+                        
                         javax.swing.ImageIcon icon = new javax.swing.ImageIcon(ruta);
                         java.awt.Image img = icon.getImage().getScaledInstance(120, 120, java.awt.Image.SCALE_SMOOTH);
                         lblFoto.setIcon(new javax.swing.ImageIcon(img));
@@ -87,7 +86,7 @@ public class FormularioEmpleado extends javax.swing.JFrame {
             }
         });
 
-        // Evento Botón Modificar (Punto 5)
+        // boton modificar
         btnModificar.addActionListener(evt -> {
             if (!txtId.getText().isEmpty()) {
                 Empleado emp = new Empleado();
@@ -103,7 +102,7 @@ public class FormularioEmpleado extends javax.swing.JFrame {
             }
         });
 
-        // Evento Botón Eliminar (Punto 6)
+        // boton eliminar
         btnEliminar.addActionListener(evt -> {
             if (!txtId.getText().isEmpty()) {
                 int id = Integer.parseInt(txtId.getText());
@@ -113,7 +112,7 @@ public class FormularioEmpleado extends javax.swing.JFrame {
             }
         });
 
-        // Evento Botón Buscar Foto (Punto 3)
+        // boton foto
         btnBuscarFoto.addActionListener(evt -> {
             javax.swing.JFileChooser selector = new javax.swing.JFileChooser();
             javax.swing.filechooser.FileNameExtensionFilter filtro = new javax.swing.filechooser.FileNameExtensionFilter("Imágenes", "jpg", "png", "jpeg");
@@ -122,14 +121,13 @@ public class FormularioEmpleado extends javax.swing.JFrame {
                 String ruta = selector.getSelectedFile().getAbsolutePath();
                 lblFoto.setToolTipText(ruta);
                 
-                // CORREGIDO: Ahora usa javax.swing.ImageIcon de forma correcta
                 javax.swing.ImageIcon imagen = new javax.swing.ImageIcon(ruta);
                 java.awt.Image imgEscalada = imagen.getImage().getScaledInstance(120, 120, java.awt.Image.SCALE_SMOOTH);
                 lblFoto.setIcon(new javax.swing.ImageIcon(imgEscalada));
             }
         });
 
-        // Diseño de la interfaz (Layout por código)
+        // interfaz hecha asi porq me daba problemas hacerlo desde el jframe
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -201,7 +199,7 @@ public class FormularioEmpleado extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new FormularioEmpleado().setVisible(true));
     }
 
-    // Declaración de variables
+    // declarar variables
     private javax.swing.JButton btnBuscarFoto;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;

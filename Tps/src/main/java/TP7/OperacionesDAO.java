@@ -6,5 +6,5 @@ public interface OperacionesDAO {
     void insertar(Empleado empleado);
     void actualizar(Empleado empleado);
     void borrar(int id);
-    List<Empleado> consultarTodos(); // Reemplaza al "listar" anterior para cumplir la consigna
+    List<Empleado> consultarTodos();
 }
